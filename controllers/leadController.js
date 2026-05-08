@@ -44,7 +44,7 @@ if (sort === "time") {
 
 if (sort === "priority") {
 
-query = query.sort({ priority: -1 });
+query = query.sort({ priority: 1 });
 }
 
     const leads = await query.populate("salesAgent");
