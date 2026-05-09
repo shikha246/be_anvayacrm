@@ -6,6 +6,7 @@ import {
   getLeadById,
   updateLead,
   deleteLead,
+  unassignLeads
 } from "../controllers/leadController.js";
 
 const router = express.Router();
@@ -19,4 +20,5 @@ router.get("/leads/:id", getLeadById);
 // router.patch("/leads/:id", updateLead);
 router.delete("/leads/:id", deleteLead);
 router.put("/leads/:id", updateLead);
+router.put("/leads/unassign/:agentId", unassignLeads);
 export default router;

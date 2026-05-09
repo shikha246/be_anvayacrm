@@ -164,3 +164,28 @@ export const getLeadById = async (req, res) => {
     });
   }
 };
+
+export const unassignLeads = async (req, res) => {
+  try {
+    const { agentId } = req.params;
+
+    await Lead.updateMany(
+      { salesAgent: agentId },
+      {
+        $set: {
+          salesAgent: null,
+        },
+      }
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "Leads are now unassigned",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
